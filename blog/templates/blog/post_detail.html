@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% block title %}Article{% endblock %}
+{% block content %}
+<div class="article-detail">
+    <div class="article">
+        <img src="{{ post_detail.thumb.url }}">
+        <h2>{{ post_detail.title }}</h2>
+        <p>By: {{ post_detail.author }}</p>
+        <p>{{ post_detail.content }}</p>
+        <p>{{ post_detail.created_on}}</p>
+        <p>{{post_detail.updated_on}}</p>
+    </div>
+    <div class="btn">
+        <a href="{% url 'blog:update' slug=post_detail.slug %}">Update</a>
+    </div>
+</div>
+{% endblock %}

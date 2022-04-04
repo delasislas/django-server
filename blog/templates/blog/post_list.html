@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+{% block title %}Articles{% endblock %}
+{% block content %}
+
+<h1>Article List</h1>
+{% if post_list %}
+<div class="articles">
+    {% for article in post_list %}
+    <div class="article">
+        <h2><a href="{% url 'blog:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+        <p>{{ article.snippet }}</p>
+        <p>Date added: {{ article.created_on }}</p>
+        <p>Date updated: {{ article.updated_on }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>There are no published articles.</p>
+{% endif %}
+<center><h3><a href="{% url 'blog:create' %}">Write a new article</a></h2></center>
+
+
+{% endblock %}

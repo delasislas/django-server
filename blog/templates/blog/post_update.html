@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+{% block title %}Article Update{% endblock %}
+{% block content %}
+<div class="update-article">
+    <h1>Update Your Awesome Article</h1>
+    <form class="site-form" action="{% url 'blog:update' slug=post.slug%}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Update">
+    </form>
+</div>
+<script src="/static/slugify.js"></script>
+{% endblock %}
